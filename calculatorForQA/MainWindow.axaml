@@ -42,7 +42,7 @@
 				<Button Background="#AEAEAE" Height="80" Width="80" CornerRadius="50" Content="+/-" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnToggleSignClick"/>
 				<Button Background="#AEAEAE" Height="80" Width="80" CornerRadius="50" Content="%" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnPercentClick"/>
 				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="÷" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnOperatorClick"/>
-				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="√x" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="√x" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnSquareRootClick"/>
 			</StackPanel>
 
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="10">
@@ -50,7 +50,7 @@
 				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnNumberClick"/>
 				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Click="OnNumberClick"/>
 				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="×" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnOperatorClick"/>
-				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="x²" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="x²" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnSquareClick"/>
 			</StackPanel>
 
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="10">
@@ -58,7 +58,7 @@
 				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnNumberClick"/>
 				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="6" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnNumberClick"/>
 				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="-" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnOperatorClick"/>
-				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="∛x" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="∛x" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnCubeRootClick"/>
 			</StackPanel>
 
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="10">
@@ -66,14 +66,14 @@
 				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnNumberClick"/>
 				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="9" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnNumberClick"/>
 				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="+" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnOperatorClick" />
-				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="1/x" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="1/x" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnReciprocalClick"/>
 			</StackPanel>
 
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="10">
 				<Button Background="#D4D4D2" Height="80" Width="170" CornerRadius="50" Content="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnNumberClick"/>
 				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="." HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnNumberClick"/>
 				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="=" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnEqualsClick" />
-				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="ln" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="ln" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnNaturalLogClick"/>
 			</StackPanel>
 
 		</StackPanel>
