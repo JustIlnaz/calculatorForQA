@@ -1,4 +1,4 @@
-﻿<Window xmlns="https://github.com/avaloniaui"
+<Window xmlns="https://github.com/avaloniaui"
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -10,6 +10,11 @@
 		x:Class="calculatorForQA.MainWindow"
 		Background="#1C1C1C"
 		Title="calculatorForQA">
+	<Window.Styles>
+		<Style Selector="Button">
+			<Setter Property="FontSize" Value="40" />
+		</Style>
+	</Window.Styles>
 	<Grid RowDefinitions="auto auto auto auto auto auto" ColumnDefinitions="auto auto auto auto auto auto">
 
 		<StackPanel>
@@ -20,6 +25,7 @@
 			VerticalAlignment="Center">
 
 				<TextBlock
+				x:Name="DisplayText"
 				Text="0"
 				Foreground="White"
 				HorizontalAlignment="Right"
@@ -32,42 +38,42 @@
 			</StackPanel>
 
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="10">
-				<Button Background="#AEAEAE" Height="80" Width="80" CornerRadius="50" Content="AC" />
-				<Button Background="#AEAEAE" Height="80" Width="80" CornerRadius="50" Content="+/-"/>
-				<Button Background="#AEAEAE" Height="80" Width="80" CornerRadius="50" Content="%"/>
-				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="÷"/>
-				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50"/>
+				<Button Background="#AEAEAE" Height="80" Width="80" CornerRadius="50" Content="AC" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnClearClick"/>
+				<Button Background="#AEAEAE" Height="80" Width="80" CornerRadius="50" Content="+/-" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnToggleSignClick"/>
+				<Button Background="#AEAEAE" Height="80" Width="80" CornerRadius="50" Content="%" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnPercentClick"/>
+				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="÷" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnOperatorClick"/>
+				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 			</StackPanel>
 			
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="10">
-				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="1" />
-				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="2" />
-				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="3"  />
-				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="×"/>
-				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50"/>
+				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnNumberClick"/>
+				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnNumberClick"/>
+				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Click="OnNumberClick"/>
+				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="×" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnOperatorClick"/>
+				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 			</StackPanel>
 
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="10">
-				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="4" />
-				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="5"/>
-				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="6"/>
-				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="-"/>
-				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50"/>
+				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnNumberClick"/>
+				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnNumberClick"/>
+				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="6" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnNumberClick"/>
+				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="-" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnOperatorClick"/>
+				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 			</StackPanel>
 
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="10">
-				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="7"/>
-				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="8"/>
-				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="9"/>
-				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="+" />
-				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" />
+				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="7" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnNumberClick"/>
+				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnNumberClick"/>
+				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="9" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnNumberClick"/>
+				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="+" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnOperatorClick" />
+				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
 			</StackPanel>
 
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="10">
-				<Button Background="#D4D4D2" Height="80" Width="170" CornerRadius="50" Content="0"/>
-				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="."/>
-				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="=" />
-				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50"  HorizontalAlignment="Center"/>
+				<Button Background="#D4D4D2" Height="80" Width="170" CornerRadius="50" Content="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnNumberClick"/>
+				<Button Background="#D4D4D2" Height="80" Width="80" CornerRadius="50" Content="." HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnNumberClick"/>
+				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" Content="=" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="OnEqualsClick" />
+				<Button Background="#FFB800" Height="80" Width="80" CornerRadius="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
 			</StackPanel>
 
 		</StackPanel>
