@@ -22,19 +22,12 @@ namespace calculatorForQA
 
         private void UpdateDisplay()
         {
-            if (DisplayText != null)
-            {
-                DisplayText.Text = _currentInput;
-            }
+            DisplayText.Text = _currentInput;
         }
 
         private void OnNumberClick(object? sender, RoutedEventArgs e)
         {
-            if (sender is not Button btn || btn.Content is null)
-                return;
-
-            var value = btn.Content.ToString();
-            if (string.IsNullOrEmpty(value))
+            if (sender is not Button btn || btn.Content?.ToString() is not string value)
                 return;
 
             if (_isNewInput)
@@ -42,26 +35,14 @@ namespace calculatorForQA
                 _currentInput = value == "." ? "0." : value;
                 _isNewInput = false;
             }
+            else if (value == ".")
+            {
+                if (!_currentInput.Contains("."))
+                    _currentInput += ".";
+            }
             else
             {
-                if (value == ".")
-                {
-                    if (!_currentInput.Contains("."))
-                    {
-                        _currentInput += ".";
-                    }
-                }
-                else
-                {
-                    if (_currentInput == "0")
-                    {
-                        _currentInput = value;
-                    }
-                    else
-                    {
-                        _currentInput += value;
-                    }
-                }
+                _currentInput = _currentInput == "0" ? value : _currentInput + value;
             }
 
             UpdateDisplay();
@@ -69,17 +50,13 @@ namespace calculatorForQA
 
         private void OnOperatorClick(object? sender, RoutedEventArgs e)
         {
-            if (sender is not Button btn || btn.Content is null)
-                return;
-
-            var op = btn.Content.ToString();
-            if (string.IsNullOrEmpty(op))
+            if (sender is not Button btn || btn.Content?.ToString() is not string op)
                 return;
 
             if (!double.TryParse(_currentInput, NumberStyles.Float, _culture, out var current))
                 return;
 
-            if (_previousValue is not null && _pendingOperator is not null && !_isNewInput)
+            if (_previousValue.HasValue && _pendingOperator != null && !_isNewInput)
             {
                 _previousValue = Calculate(_previousValue.Value, current, _pendingOperator);
                 _currentInput = FormatNumber(_previousValue.Value);
@@ -96,7 +73,7 @@ namespace calculatorForQA
 
         private void OnEqualsClick(object? sender, RoutedEventArgs e)
         {
-            if (_previousValue is null || _pendingOperator is null)
+            if (!_previousValue.HasValue || _pendingOperator == null)
                 return;
 
             if (!double.TryParse(_currentInput, NumberStyles.Float, _culture, out var current))
@@ -125,14 +102,9 @@ namespace calculatorForQA
             if (_currentInput == "0")
                 return;
 
-            if (_currentInput.StartsWith("-", StringComparison.Ordinal))
-            {
-                _currentInput = _currentInput.Substring(1);
-            }
-            else
-            {
-                _currentInput = "-" + _currentInput;
-            }
+            _currentInput = _currentInput.StartsWith("-") 
+                ? _currentInput[1..] 
+                : "-" + _currentInput;
 
             UpdateDisplay();
         }
@@ -166,14 +138,7 @@ namespace calculatorForQA
                 return "Error";
 
             var text = value.ToString("G15", _culture);
-
-            // убираем лишние нули и точку
-            if (text.Contains("."))
-            {
-                text = text.TrimEnd('0').TrimEnd('.');
-            }
-
-            return text;
+            return text.Contains(".") ? text.TrimEnd('0').TrimEnd('.') : text;
         }
     }
 }
